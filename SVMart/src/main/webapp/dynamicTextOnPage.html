@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Text Example</title>
+    <style>
+        #dynamicText {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20%;
+        }
+    </style>
+</head>
+<body>
+    <div id="dynamicText">Welcome to our site!</div>
+    
+    <script >// Array of messages to be displayed
+        const messages = [
+            "Welcome to our site!",
+            "Enjoy your stay!",
+            "Check out our latest features!",
+            "Don't miss our special offers!",
+            "Contact us for more info!",
+            "Your feedback is valuable!",
+            "Have a great day!",
+            "Join our community!",
+            "Explore our blog!",
+            "Subscribe to our newsletter!"
+        ];
+        
+        let currentIndex = 0;
+        
+        function updateText() {
+            // Get the element where the text will be displayed
+            const dynamicTextElement = document.getElementById('dynamicText');
+            
+            // Update the text content of the element
+            dynamicTextElement.textContent = messages[currentIndex];
+            
+            // Increment the index and reset if it exceeds the length of the messages array
+            currentIndex = (currentIndex + 1) % messages.length;
+        }
+        
+        // Call updateText every 20 seconds (20000 milliseconds)
+        setInterval(updateText, 2000);
+        
+        // Initial call to set the first message
+        updateText();
+        </script>
+</body>
+</html>
